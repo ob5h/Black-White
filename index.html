@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Black White</title>
+  <title>Black White Toggle</title>
   <style>
     body {
       margin: 0;
-      background: rgb(0,0,0);
-      cursor: none;
+      background: rgb(0,0,0); /* start black */
+      cursor: none; /* hide the cursor */
+      height: 100vh;
     }
   </style>
 </head>
@@ -16,8 +17,17 @@
   let isBlack = true;
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "F11") return;
+    // Exclude these keys: F11, Ctrl, Tab, T
+    if (
+      e.key === "F11" ||
+      e.key === "Tab" ||
+      e.key.toLowerCase() === "t" ||
+      e.ctrlKey
+    ) {
+      return; // do nothing for excluded keys
+    }
 
+    // Toggle background instantly
     isBlack = !isBlack;
     document.body.style.background = isBlack
       ? "rgb(0,0,0)"
