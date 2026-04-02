@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Black White</title>
+  <style>
+    body {
+      margin: 0;
+      background: rgb(0,0,0);
+      cursor: none;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  let isBlack = true;
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "F11") return;
+
+    isBlack = !isBlack;
+    document.body.style.background = isBlack
+      ? "rgb(0,0,0)"
+      : "rgb(255,255,255)";
+  });
+</script>
+
+</body>
+</html>
