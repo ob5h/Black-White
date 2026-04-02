@@ -16,25 +16,26 @@
 <script>
   let isBlack = true;
 
-  document.addEventListener("keydown", (e) => {
-    // Exclude these keys: F11, Ctrl, Tab, T
-    if (
-      e.key === "F11" ||
-      e.key === "Tab" ||
-      e.key === "Alt" ||
-      e.key.toLowerCase() === "t" ||
-      e.altKey ||
-      e.ctrlKey
-    ) {
-      return; // do nothing for excluded keys
-    }
+document.addEventListener("keydown", (e) => {
+  const key = e.key.toLowerCase();
 
-    // Toggle background instantly
-    isBlack = !isBlack;
-    document.body.style.background = isBlack
-      ? "rgb(0,0,0)"
-      : "rgb(255,255,255)";
-  });
+  // Exclude only specific keys
+  if (
+    key === "f11" ||
+    key === "tab" ||
+    key === "alt" ||
+    key === "t" ||
+    key === "control"
+  ) {
+    return;
+  }
+
+  // Toggle background instantly
+  isBlack = !isBlack;
+  document.body.style.background = isBlack
+    ? "rgb(0,0,0)"
+    : "rgb(255,255,255)";
+});
 </script>
 
 </body>
