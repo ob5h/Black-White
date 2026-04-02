@@ -5,37 +5,38 @@
   <style>
     body {
       margin: 0;
-      background: rgb(0,0,0); /* start black */
-      cursor: none; /* hide the cursor */
+      background: rgb(0,0,0);
+      cursor: none;
       height: 100vh;
     }
   </style>
 </head>
-<body>
+<body tabindex="0">
 
 <script>
   let isBlack = true;
 
-document.addEventListener("keydown", (e) => {
-  const key = e.key.toLowerCase();
+  // Ensure body has focus
+  document.body.focus();
 
-  // Exclude only specific keys
-  if (
-    key === "f11" ||
-    key === "tab" ||
-    key === "alt" ||
-    key === "t" ||
-    key === "control"
-  ) {
-    return;
-  }
+  document.addEventListener("keydown", (e) => {
+    const key = e.key.toLowerCase();
 
-  // Toggle background instantly
-  isBlack = !isBlack;
-  document.body.style.background = isBlack
-    ? "rgb(0,0,0)"
-    : "rgb(255,255,255)";
-});
+    if (
+      key === "f11" ||
+      key === "tab" ||
+      key === "alt" ||
+      key === "t" ||
+      key === "control"
+    ) {
+      return;
+    }
+
+    isBlack = !isBlack;
+    document.body.style.background = isBlack
+      ? "rgb(0,0,0)"
+      : "rgb(255,255,255)";
+  });
 </script>
 
 </body>
