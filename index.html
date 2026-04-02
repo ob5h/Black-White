@@ -1,43 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Black White Toggle</title>
-  <style>
-    body {
-      margin: 0;
-      background: rgb(0,0,0);
-      cursor: none;
-      height: 100vh;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Background</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: rgb(0, 0, 0);
+            cursor: none; /* Hide the cursor */
+        }
+    </style>
 </head>
-<body tabindex="0">
+<body>
+    <script>
+        let isBlack = true;
 
-<script>
-  let isBlack = true;
+        document.body.addEventListener('keydown', (event) => {
+            if (event.code === 'Space') {
+                isBlack = !isBlack;
+                document.body.style.backgroundColor = isBlack ? 'rgb(0,0,0)' : 'rgb(255,255,255)';
+            }
+        });
 
-  // Ensure body has focus
-  document.body.focus();
-
-  document.addEventListener("keydown", (e) => {
-    const key = e.key.toLowerCase();
-
-    if (
-      key === "f11" ||
-      key === "tab" ||
-      key === "alt" ||
-      key === "t" ||
-      key === "control"
-    ) {
-      return;
-    }
-
-    isBlack = !isBlack;
-    document.body.style.background = isBlack
-      ? "rgb(0,0,0)"
-      : "rgb(255,255,255)";
-  });
-</script>
-
+        // Make sure the body is focused to catch key presses
+        window.onload = () => {
+            document.body.tabIndex = 0;
+            document.body.focus();
+        };
+    </script>
 </body>
 </html>
