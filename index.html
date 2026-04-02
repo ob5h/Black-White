@@ -1,33 +1,55 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Space Toggle</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple Toggle Page</title>
   <style>
     html, body {
       width: 100%;
       height: 100%;
       margin: 0;
+      overflow: hidden;
       background: rgb(0, 0, 0);
       cursor: none;
-      overflow: hidden;
     }
   </style>
 </head>
 <body>
   <script>
-    let isBlack = true;
+    (function () {
+      let isBlack = true;
 
-    document.addEventListener("keydown", (e) => {
-      if (e.code === "Space") {
-        e.preventDefault();
-        isBlack = !isBlack;
+      function setBackground() {
         document.body.style.backgroundColor = isBlack
           ? "rgb(0, 0, 0)"
           : "rgb(255, 255, 255)";
       }
-    });
+
+      document.addEventListener("keydown", function (event) {
+        const key = event.key.toLowerCase();
+        const code = event.code;
+
+        // Ignore these keys
+        if (
+          key === "alt" ||
+          key === "tab" ||
+          key === "control" ||
+          key === "t" ||
+          code === "F11" ||
+          code === "MetaLeft" ||
+          code === "MetaRight" ||
+          key === "meta"
+        ) {
+          return;
+        }
+
+        isBlack = !isBlack;
+        setBackground();
+      });
+
+      setBackground();
+    })();
   </script>
 </body>
 </html>
