@@ -1,0 +1,10 @@
+{
+  "name": "Black White Toggle",
+  "short_name": "Black White",
+  "description": "A simple offline-capable black and white toggle page.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000"
+}

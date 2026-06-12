@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="manifest" href="./manifest.webmanifest" />
   <title>Simple Toggle Page</title>
   <style>
     html, body {
@@ -52,6 +54,15 @@
 
       setBackground();
     })();
+  </script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("./sw.js").catch(function (error) {
+          console.error("Service worker registration failed:", error);
+        });
+      });
+    }
   </script>
 </body>
 </html>
